@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFac" Version="4.9.2" />
+    <PackageReference Include="CleanMonads" Version="2.1.2" />
+    <PackageReference Include="MimeKit" Version="2.1.5.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Suckless.Assert" Version="1.2.0" />
+    <PackageReference Include="XPdfNet" Version="1.1.1" />
+    <PackageReference Include="Npoi.Mapper" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+</Project>
