@@ -10,21 +10,20 @@ namespace TravelAccountant.Domain.Summaries
         public Summary(
             int contractorPosition, 
             DateTime date, 
-            string number, 
+            string travelNumber, 
             Money amount,
             IEnumerable<string> passengers,
             string bookingNumber) 
         {
             Assert(contractorPosition).Positive();
             Assert(date).NotDefault();
-            Assert(number).NotEmpty();
+            Assert(travelNumber).NotEmpty();
             Assert(passengers).NotEmpty();
-            Assert(bookingNumber).NotEmpty();
             AssertNotNull(amount);
 
             ContractorPosition = contractorPosition;
             Date = date;
-            Number = number;
+            TravelNumber = travelNumber;
             Amount = amount;
             Passengers = passengers;
             BookingNumber = bookingNumber;
@@ -32,7 +31,7 @@ namespace TravelAccountant.Domain.Summaries
 
         public int ContractorPosition { get; }
         public DateTime Date { get; }
-        public string Number { get; }
+        public string TravelNumber { get; }
         public Money Amount { get; }
         public IEnumerable<string> Passengers { get; }
         public string BookingNumber { get; }

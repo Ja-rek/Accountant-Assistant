@@ -7,10 +7,10 @@ namespace TravelAccountant.Domain.Summaries.Ryanair
     public class BookingSummary : Summary
     {
         public BookingSummary(DateTime date, 
-            string number, 
+            string travelNumber, 
             Money amount,
             IEnumerable<string> passengers) 
-                : base(49, date, number, amount, passengers, null)
+                : base(49, date, travelNumber, amount, passengers, null)
         {
         }
     }
