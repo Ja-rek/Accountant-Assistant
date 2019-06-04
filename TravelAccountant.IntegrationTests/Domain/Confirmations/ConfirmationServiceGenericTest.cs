@@ -26,18 +26,18 @@ namespace TravelAccountant.IntegrationTests.Domain.Confirmations
         public void GetConfirmation_WhneDirectoryNotExist_ThenThrowsFileNotFoundException()
         {
             var stubIncorrectPath = new string[] { $"/home/wrongPath/file2.{FileExtension}" };
+            var confirmations = ConfirmationService().GetConfirmations(stubIncorrectPath);
 
-            Assert.Throws<FileNotFoundException>(() => 
-                    ConfirmationService().GetConfirmations(stubIncorrectPath).First(), AssertMessage);
+            Assert.IsEmpty(confirmations, AssertMessage);
         }
 
         [Test]
         public void GetConfirmation_WhneFileNotExist_ThenThrowsFileNotFoundException()
         {
             var stubIncorrectPath = new string[] { DIRECTORY + $"file2.{FileExtension}" };
+            var confirmations = ConfirmationService().GetConfirmations(stubIncorrectPath);
 
-            Assert.Throws<FileNotFoundException>(() => 
-                    ConfirmationService().GetConfirmations(stubIncorrectPath).First(), AssertMessage);
+            Assert.IsEmpty(confirmations, AssertMessage);
         }
 
         private static IConfirmationService<TConfirmation> ConfirmationService()
