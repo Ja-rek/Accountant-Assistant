@@ -15,22 +15,19 @@ namespace TravelAccountant.Domain.Summaries
             this.summaryServices = summaryServices;
         }
 
-        public async Task<IEnumerable<Summary>> SummariesFrom(IEnumerable<TConfirmation> confirmations)
+        public IEnumerable<Summary> SummariesFrom(IEnumerable<TConfirmation> confirmations)
         {
             var allSummaries = new List<Summary>();
 
-            return await Task.Run(() => 
+            Parallel.ForEach(confirmations, confirmation => 
             {
-                foreach (var confirmation in confirmations)
-                {
-                    var summaries = summaryServices
-                        .Select(service => service.DrawUpSummaryFrom(confirmation)).Values();
+                var summaries = summaryServices
+                    .Select(service => service.DrawUpSummaryFrom(confirmation)).Values();
 
-                    allSummaries.AddRange(summaries);
-                };
-
-                return allSummaries;
+                allSummaries.AddRange(summaries);
             });
+
+            return allSummaries;
         }
     }
 }
