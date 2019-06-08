@@ -17,8 +17,8 @@ namespace TravelAccountant.IntegrationTests.Domain.Summaries
         const string fileEuro = DIRECTORY+ "TestEuro.xlsx";
         const string filePln = DIRECTORY+ "TestPln.xlsx";
 
-        [SetUp]
-        public void SetUp()
+        [TearDown]
+        public void TearDown()
         {
             if (File.Exists(fileEuro)) File.Delete(fileEuro);
             if (File.Exists(filePln)) File.Delete(filePln);
