@@ -14,7 +14,7 @@ namespace TravelAccountant.Domain.Summaries
             this.confirmationTemplateSpecyfications = confirmationTemplateSpecyfications;
         }
 
-        public IEnumerable<string> FindIncorrectTemplatesOf(IEnumerable<TConfirmation> confirmations)
+        public IEnumerable<string> FindIncorrectTemplates(IEnumerable<TConfirmation> confirmations)
         {
             return confirmations.AsParallel()
                 .Where(c => this.confirmationTemplateSpecyfications.Any(x => x.IsTemplateCorrect(c)))
