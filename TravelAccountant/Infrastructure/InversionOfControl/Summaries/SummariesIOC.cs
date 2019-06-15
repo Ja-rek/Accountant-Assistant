@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using Autofac;
 using Common.Utils;
-using TravelAccountant.Application;
+using TravelAccountant.Application.Summaries;
+using TravelAccountant.Domain.Confirmations;
 using TravelAccountant.Domain.Summaries;
 using TravelAccountant.Infrastructure.Summaries;
 
@@ -21,9 +22,18 @@ namespace TravelAccountant.Infrastructure.InversionOfControl.Summaries
                 c.ResolveNamed<IEnumerable<ISummarySheetService>>(COMPOSITION)))
                 .As<ISummarySheetService>();
 
-            builder.RegisterGeneric(typeof(SummaryApplicationService<>)).AsSelf();
             builder.RegisterGeneric(typeof(IncorrectConfirmationTemplateSpecyfication<>)).AsSelf();
-            builder.RegisterGeneric(typeof(SummariesGenerator<>)).AsSelf();
+
+            builder.RegisterType<Dictionary<string, ISummaryService>>()
+                .As<IReadOnlyDictionary<string, ISummaryService>>();
+
+            builder.RegisterType<SummaryService<ConfirmationEmail>>().Keyed<ISummaryService>(".eml");
+            builder.RegisterType<SummaryService<ConfirmationPdf>>().Keyed<ISummaryService>(".pdf");
+
+            builder.Register(ctx => 
+                new SummaryApplicationService(
+                    new SummaryServiceComposite(ctx.Resolve<IDictionary<string, ISummaryService>>()), 
+                    ctx.Resolve<ISummarySheetService>())).AsSelf();
         }
     }
 }
