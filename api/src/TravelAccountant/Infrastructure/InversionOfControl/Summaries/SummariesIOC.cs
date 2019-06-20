@@ -24,15 +24,14 @@ namespace TravelAccountant.Infrastructure.InversionOfControl.Summaries
 
             builder.RegisterGeneric(typeof(IncorrectConfirmationTemplateSpecyfication<>)).AsSelf();
 
-            builder.RegisterType<Dictionary<string, ISummaryService>>()
+            builder.RegisterType<DependencyDictionary<string, ISummaryService>>()
                 .As<IReadOnlyDictionary<string, ISummaryService>>();
 
             builder.RegisterType<SummaryService<ConfirmationEmail>>().Keyed<ISummaryService>(".eml");
-            builder.RegisterType<SummaryService<ConfirmationPdf>>().Keyed<ISummaryService>(".pdf");
 
             builder.Register(ctx => 
                 new SummaryApplicationService(
-                    new SummaryServiceComposite(ctx.Resolve<IDictionary<string, ISummaryService>>()), 
+                    new SummaryServiceComposite(ctx.Resolve<IReadOnlyDictionary<string, ISummaryService>>()), 
                     ctx.Resolve<ISummarySheetService>())).AsSelf();
         }
     }
