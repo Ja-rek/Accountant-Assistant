@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant", "TravelAccountant\TravelAccountant.csproj", "{3A64E51E-6B08-49D3-BC09-B912439641E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant", "src\TravelAccountant\TravelAccountant.csproj", "{3A64E51E-6B08-49D3-BC09-B912439641E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant.UnitTests", "TravelAccountant.UnitTests\TravelAccountant.UnitTests.csproj", "{40A4FD1F-EDBC-4AE1-A751-69CA79D9C918}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant.UnitTests", "tests\TraveAccountant\UnitTests\TravelAccountant.UnitTests.csproj", "{40A4FD1F-EDBC-4AE1-A751-69CA79D9C918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{222EBBEA-FBE1-4AAD-9825-0B5A8E479975}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.csproj", "{222EBBEA-FBE1-4AAD-9825-0B5A8E479975}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant.IntegrationTests", "TravelAccountant.IntegrationTests\TravelAccountant.IntegrationTests.csproj", "{89961176-8CF7-4AE2-BDDF-4DE6A413ED61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAccountant.IntegrationTests", "tests\TraveAccountant\IntegrationTests\TravelAccountant.IntegrationTests.csproj", "{89961176-8CF7-4AE2-BDDF-4DE6A413ED61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UnitTests", "Common.UnitTests\Common.UnitTests.csproj", "{AB9BD5C8-D5F0-4E7B-8D33-EB34174DE50E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UnitTests", "tests\Common.UnitTests\Common.UnitTests.csproj", "{AB9BD5C8-D5F0-4E7B-8D33-EB34174DE50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap", "Bootstrap\Bootstrap.csproj", "{B35E725C-4034-4F9D-AA17-375C160F9980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bootstrap", "src\Bootstrap\Bootstrap.csproj", "{B35E725C-4034-4F9D-AA17-375C160F9980}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,17 +1,19 @@
 ﻿using System.Reflection;
 using Autofac;
+using Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLog;
 using TravelAccountant.Infrastructure.InversionOfControl;
 
 namespace AspBootstrap
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }

@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using NLog;
-using Common;
 
 namespace Common.UnitTests
 {

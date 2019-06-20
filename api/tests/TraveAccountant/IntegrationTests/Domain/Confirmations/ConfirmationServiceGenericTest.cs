@@ -7,7 +7,7 @@ namespace TravelAccountant.IntegrationTests.Domain.Confirmations
 {
     internal abstract class ConfirmationServiceGenericTest<TConfirmation> where TConfirmation : Confirmation
     {
-        const string DIRECTORY = "/home/jk/projects/AccountantAssistant/TravelAccountant."
+        const string DIRECTORY = "/home/jk/projects/AccountantAssistant/api/tests/TraveAccountant/"
             + "IntegrationTests/Domain/Confirmations/Files/";
 
         [Test]

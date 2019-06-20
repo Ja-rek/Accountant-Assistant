@@ -7,9 +7,9 @@ namespace TravelAccountant.Domain.Summaries
 {
     public class SummaryServiceComposite : ISummaryService
     {
-        private readonly IDictionary<string, ISummaryService> summaryServices;
+        private readonly IReadOnlyDictionary<string, ISummaryService> summaryServices;
 
-        public SummaryServiceComposite(IDictionary<string, ISummaryService> summaryServices)
+        public SummaryServiceComposite(IReadOnlyDictionary<string, ISummaryService> summaryServices)
         {
             this.summaryServices = summaryServices;
         }

@@ -11,8 +11,6 @@ namespace TravelAccountant.Infrastructure.InversionOfControl
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .Where(x => x.Name.EndsWith("FileReader"))
                 .AsImplementedInterfaces();
-
-            builder.RegisterType<ConfirmationEmail>().AsSelf();
         }
     }
 }

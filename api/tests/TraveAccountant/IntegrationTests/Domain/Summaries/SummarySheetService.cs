@@ -11,7 +11,7 @@ namespace TravelAccountant.IntegrationTests.Domain.Summaries
 {
     internal class SummarySheetServiceTest
     {
-        const string DIRECTORY = "/home/jk/projects/AccountantAssistant/TravelAccountant."
+        const string DIRECTORY = "/home/jk/projects/AccountantAssistant/api/tests/TraveAccountant/"
             + "IntegrationTests/Domain/Summaries/Files/";
 
         const string fileEuro = DIRECTORY+ "TestEuro.xlsx";

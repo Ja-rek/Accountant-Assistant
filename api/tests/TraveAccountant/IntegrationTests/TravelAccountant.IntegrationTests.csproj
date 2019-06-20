@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.2" />
     <PackageReference Include="Autofixture" Version="4.9.0" />
-    <PackageReference Include="CleanMonads" Version="2.1.2" />
     <PackageReference Include="NLog" Version="4.6.3" />
     <PackageReference Include="nunit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
@@ -16,8 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TravelAccountant\TravelAccountant.csproj" />
-    <ProjectReference Include="..\Common\Common.csproj" />
+	  <ProjectReference Include="..\..\..\src\TravelAccountant\TravelAccountant.csproj" />
+    <ProjectReference Include="..\..\..\src\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>
