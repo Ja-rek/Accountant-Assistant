@@ -6,7 +6,7 @@ using TravelAccountant.Application.Summaries;
 
 namespace TravelAccountant.Web.Summaries
 {
-    [Route("api/")]
+    [Route("api/{action}")]
     [ApiController]
     public class SummaryController : ControllerBase
     {
