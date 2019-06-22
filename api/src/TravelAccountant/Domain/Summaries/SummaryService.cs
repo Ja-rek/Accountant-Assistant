@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Monads.Extensions.Linq;
 using System.Linq;
 using System.Threading.Tasks;
+using Monads.Extensions.Linq;
 using TravelAccountant.Domain.Confirmations;
 
 namespace TravelAccountant.Domain.Summaries
