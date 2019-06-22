@@ -6,7 +6,7 @@ namespace TravelAccountant.Domain.Confirmations
     {
         public Confirmation(string filePath, string content)
         {
-            Assert(content).NotEmpty();
+            AssertNotNull(content);
 
             FilePath = filePath;
             Content = content;

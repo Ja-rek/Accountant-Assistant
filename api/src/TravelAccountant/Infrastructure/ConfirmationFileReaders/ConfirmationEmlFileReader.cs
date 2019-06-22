@@ -25,7 +25,7 @@ namespace TravelAccountant.Infrastructure.Confirmations
             var stream = File.OpenRead(path);
             var message = new MimeParser(stream, MimeFormat.Default).ParseMessage();
 
-            return new ConfirmationEmail(path, message.Subject, message.Date.Date, message.Body.ToString());
+            return new ConfirmationEmail(path, message.Subject, message.Date.Date, message.HtmlBody ?? string.Empty);
         }
     }
 }
