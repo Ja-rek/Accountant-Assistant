@@ -34,15 +34,16 @@ namespace TravelAccountant.Infrastructure.Summaries
 
         private void Save(string path, IEnumerable<SummaryExelPersistence> persistences)
         {
+            logger.Debug($"Created persistence object: {Json.Serialize(persistences)}");
+
             var mapper = SummaryMapping.Mapper(this.fileNameStrategy.CurrencySymbol);
 
             var position = path.Count() -5;
             var concreteFilePath = path.Insert(position, this.fileNameStrategy.FileNameSuffix);
 
-            logger.Debug($"create persistence object: {Json.Serialize(persistences)}");
-            logger.Debug($"Saved at: {concreteFilePath}");
-
             mapper.Save(concreteFilePath, persistences, overwrite: true, xlsx: true);
+
+            logger.Info($"Saved at: {concreteFilePath}");
         }
     }
 }
