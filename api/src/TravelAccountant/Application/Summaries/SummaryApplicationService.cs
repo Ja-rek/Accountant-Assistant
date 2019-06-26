@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TravelAccountant.Domain.Summaries;
 
 namespace TravelAccountant.Application.Summaries
@@ -19,11 +20,15 @@ namespace TravelAccountant.Application.Summaries
             return this.summaryService.FindPathsToIncorrectTemplates(paths);
         }
 
-        public void FillSummarySheet(IEnumerable<string> confirmationPaths, string summarySheetPath)
+        public bool FillSummarySheet(IEnumerable<string> confirmationPaths, string summarySheetPath)
         {
             var summaries = this.summaryService.DrawUpSummaries(confirmationPaths);
 
+            if (!summaries.Any()) return false;
+
             this.sheetService.WriteSummariesToSheet(summaries, summarySheetPath);
+
+            return true;
         }
     }
 }

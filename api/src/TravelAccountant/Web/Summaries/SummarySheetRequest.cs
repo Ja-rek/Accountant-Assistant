@@ -1,12 +1,11 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TravelAccountant.Web.Summaries
 {
     public class SummarySheetRequest
     {
-        [Required]
-        public IEnumerable<string> confirmationPaths  { get; set; }
+        [Required, MinLength(1)]
+        public string[] ConfirmationPaths  { get; set; }
 
         [Required]
         public string SummaryPath { get; set; }

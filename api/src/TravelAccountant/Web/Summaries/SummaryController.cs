@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TravelAccountant.Application.Summaries;
 
 namespace TravelAccountant.Web.Summaries
 {
-    [Route("api/{action}")]
+    [Route("api/summary/{action}")]
     [ApiController]
     public class SummaryController : ControllerBase
     {
@@ -18,15 +17,25 @@ namespace TravelAccountant.Web.Summaries
         }
 
         [HttpPost]
-        public IEnumerable<string> PathsToIncorrectTemplates([Required] IEnumerable<string> paths)
+        [ActionName("incorrect-template")]
+        public ActionResult<string[]> IncorrectTemplates([Required, MinLength(1)] string[] paths)
         {
-            return this.service.FindPathsToIncorrectTemplates(paths);
+            var incorrectTemplatePaths = this.service.FindPathsToIncorrectTemplates(paths);
+
+            if (!incorrectTemplatePaths.Any()) return StatusCode(204);
+
+            return incorrectTemplatePaths.ToArray();
         }
 
         [HttpPost]
-        public void SummarySheet(SummarySheetRequest request)
+        [ActionName("sheet")]
+        public ActionResult SummarySheet(SummarySheetRequest request)
         {
-            this.service.FillSummarySheet(request.confirmationPaths, request.SummaryPath);
+            var success = this.service.FillSummarySheet(request.ConfirmationPaths, request.SummaryPath);
+
+            if (success) return StatusCode(200);
+
+            return StatusCode(204);
         }
     }
 }
