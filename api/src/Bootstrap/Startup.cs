@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AspBootstrap.Filters;
 using Autofac;
 using Common;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +23,8 @@ namespace AspBootstrap
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => options.Filters.Add(new ValidateInputFilter()))
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
