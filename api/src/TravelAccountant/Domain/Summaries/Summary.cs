@@ -18,7 +18,6 @@ namespace TravelAccountant.Domain.Summaries
             Assert(contractorPosition).Positive();
             Assert(date).NotDefault();
             Assert(travelNumber).NotEmpty();
-            Assert(passengers).NotEmpty();
             AssertNotNull(amount);
 
             ContractorPosition = contractorPosition;
