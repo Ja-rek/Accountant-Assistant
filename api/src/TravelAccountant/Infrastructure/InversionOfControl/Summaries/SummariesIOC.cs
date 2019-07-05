@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Autofac;
 using Common.Utils;
 using TravelAccountant.Application.Summaries;
-using TravelAccountant.Domain.Confirmations;
 using TravelAccountant.Domain.Summaries;
 using TravelAccountant.Infrastructure.Summaries;
 
@@ -26,8 +25,6 @@ namespace TravelAccountant.Infrastructure.InversionOfControl.Summaries
 
             builder.RegisterType<DependencyDictionary<string, ISummaryService>>()
                 .As<IReadOnlyDictionary<string, ISummaryService>>();
-
-            builder.RegisterType<SummaryService<ConfirmationEmail>>().Keyed<ISummaryService>(".eml");
 
             builder.Register(ctx => 
                 new SummaryApplicationService(
