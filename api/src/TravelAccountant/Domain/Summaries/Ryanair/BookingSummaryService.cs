@@ -4,7 +4,7 @@ using static Monads.MaybeFactory;
 
 namespace TravelAccountant.Domain.Summaries.Ryanair
 {
-    public class BookingSummaryService : IConfirmationToSummary<ConfirmationEmail>
+    public class BookingSummaryService : ISummaryFromAirlineService<ConfirmationEmail>
     {
         private readonly ICurrencyPolicy currencyPolicy;
 

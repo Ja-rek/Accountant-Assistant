@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using TravelAccountant.Domain.Summaries.Ryanair;
-using TravelAccountant.Domain.Summaries.Ryanair.ConfirmationTemplate.CurrencyPolicies;
+using TravelAccountant.Domain.Summaries.Ryanair.CurrencyPolicies;
 
 namespace TravelAccountant.UnitTests.Domain.Summaries.Ryanair
 {

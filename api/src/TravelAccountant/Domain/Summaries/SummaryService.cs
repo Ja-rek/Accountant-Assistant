@@ -9,15 +9,15 @@ namespace TravelAccountant.Domain.Summaries
     public class SummaryService<TConfirmation> : ISummaryService
         where TConfirmation : Confirmation
     {
-        private readonly IEnumerable<IConfirmationToSummary<TConfirmation>> confirmationToSumaryService;
+        private readonly IEnumerable<ISummaryFromAirlineService<TConfirmation>> summaryFromAirlineService;
         private readonly IncorrectConfirmationTemplateSpecyfication<TConfirmation> specyfication;
         private readonly IConfirmationService<TConfirmation> confirmationService;
 
-        public SummaryService(IEnumerable<IConfirmationToSummary<TConfirmation>> confirmationToSumaryService,
+        public SummaryService(IEnumerable<ISummaryFromAirlineService<TConfirmation>> confirmationToSumaryService,
             IncorrectConfirmationTemplateSpecyfication<TConfirmation> specyfication,
             IConfirmationService<TConfirmation> confirmationService)
         {
-            this.confirmationToSumaryService = confirmationToSumaryService;
+            this.summaryFromAirlineService = confirmationToSumaryService;
             this.specyfication = specyfication;
             this.confirmationService = confirmationService;
         }
@@ -36,14 +36,13 @@ namespace TravelAccountant.Domain.Summaries
             return this.specyfication.FindIncorrectTemplates(confirmations);
         }
 
-
         private IEnumerable<Summary> SummariesFrom(IEnumerable<TConfirmation> confirmations)
         {
             var allSummaries = new List<Summary>();
 
             Parallel.ForEach(confirmations, confirmation => 
             {
-                var summaries = confirmationToSumaryService
+                var summaries = summaryFromAirlineService
                     .Select(service => service.DrawUpSummaryFrom(confirmation)).Values();
 
                 allSummaries.AddRange(summaries);

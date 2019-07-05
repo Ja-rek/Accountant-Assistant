@@ -23,7 +23,7 @@ namespace TravelAccountant.Domain.Summaries
 
             ContractorPosition = contractorPosition;
             Date = date;
-            TravelNumber = travelNumber;
+            DocumentNumber = travelNumber;
             Amount = amount;
             Passengers = passengers;
             BookingNumber = bookingNumber;
@@ -31,7 +31,7 @@ namespace TravelAccountant.Domain.Summaries
 
         public int ContractorPosition { get; }
         public DateTime Date { get; }
-        public string TravelNumber { get; }
+        public string DocumentNumber { get; }
         public Money Amount { get; }
         public IEnumerable<string> Passengers { get; }
         public string BookingNumber { get; }

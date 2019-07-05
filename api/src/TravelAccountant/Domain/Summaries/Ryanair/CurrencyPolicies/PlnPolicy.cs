@@ -1,6 +1,6 @@
 using TravelAccountant.Domain.Moneys;
 
-namespace TravelAccountant.Domain.Summaries.Ryanair.ConfirmationTemplate.CurrencyPolicies
+namespace TravelAccountant.Domain.Summaries.Ryanair.CurrencyPolicies
 {
     public class PlnPolicy : ICurrencyPolicy
     {

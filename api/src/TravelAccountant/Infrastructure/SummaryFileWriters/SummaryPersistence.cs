@@ -11,7 +11,7 @@ namespace TravelAccountant.Infrastructure.Summaries
             ContractorPosition = summary.ContractorPosition;
             DocumentDate = summary.Date;
             BusinessOperationDate = summary.Date;
-            DocumentNumber = summary.TravelNumber;
+            DocumentNumber = summary.DocumentNumber;
             OriginalAmount = summary.Amount.Value;
             PaymentReceiptDate = null;
             DueDate = null;
