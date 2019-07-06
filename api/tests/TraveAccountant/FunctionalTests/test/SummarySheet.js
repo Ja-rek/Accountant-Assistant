@@ -23,7 +23,7 @@ describe("To create summary sheet with summaries I should send all confirmation 
     context("If confirmations that contains money format of Pln and Eoruo exist", () => {
       it("should return 200 on success", () => {
           let command = {
-            ConfirmationPaths: allFiles.filter(x => x.endsWith(".eml") && x != "incorrectConfirmation.eml"),
+            ConfirmationPaths: allFiles.filter(x => !x.endsWith(".xlsx") && !x.includes("incorrectConfirmation")),
             SummaryPath: file("SummarySheet.xlsx") 
           };
           return expect(chakram.post(endpoint, command)).to.have.status(200);
