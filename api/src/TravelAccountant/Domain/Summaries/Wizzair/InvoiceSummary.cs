@@ -1,5 +1,6 @@
 using System;
 using TravelAccountant.Domain.Moneys;
+using static Suckless.Asserts.Assertions;
 
 namespace TravelAccountant.Domain.Summaries.Wizzair
 {
@@ -11,6 +12,7 @@ namespace TravelAccountant.Domain.Summaries.Wizzair
             string bookingNumber) 
                 : base(2, date, invoiceNumber, amount, null, bookingNumber)
         {
+            Assert(bookingNumber).NotEmpty();
         }
     }
 }

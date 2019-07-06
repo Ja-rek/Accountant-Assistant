@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TravelAccountant.Domain.Moneys;
+using static Suckless.Asserts.Assertions;
 
 namespace TravelAccountant.Domain.Summaries.Ryanair
 {
@@ -12,6 +13,7 @@ namespace TravelAccountant.Domain.Summaries.Ryanair
             IEnumerable<string> passengers) 
                 : base(49, date, travelNumber, amount, passengers, null)
         {
+            Assert(passengers).NotEmpty();
         }
     }
 }
