@@ -4,4 +4,5 @@ Folder 'files' is not hosted on Github, because it contains original invoices an
   - Create 'files' folder and put there invoices or confirmations and SummarySheetCorrectDataToCompareEuro/Pln.xls
   - Check connection link and path to files in utils/helper.js 
   - Run API
+  - Run 'npm install'
   - Run tests with 'npm test'
